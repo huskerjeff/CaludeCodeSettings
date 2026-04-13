@@ -28,3 +28,6 @@ chrome/
 # Downloads & backups - machine specific
 downloads/
 backups/
+
+# Plugin marketplaces - re-downloaded by Claude Code automatically
+plugins/marketplaces/
