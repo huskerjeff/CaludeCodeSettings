@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "sessionId": "00aeba6f-8460-49f8-83a5-60f66f2f26ac",
+      "fullPath": "C:\\Users\\jeffkit\\.claude\\projects\\C--Users-jeffkit-OneDrive---CDW-Claude-Code-testing-DocGitTest\\00aeba6f-8460-49f8-83a5-60f66f2f26ac.jsonl",
+      "fileMtime": 1769786620814,
+      "firstPrompt": "<command-message>taches-cc-resources:add-to-todos</command-message> <command-name>/taches-cc-resources:add-to-todos</command-name> <command-args>eat lunch and dinner</command-args>",
+      "summary": "Personal task tracking setup with git integration",
+      "messageCount": 30,
+      "created": "2026-01-13T15:28:54.463Z",
+      "modified": "2026-01-13T16:35:20.992Z",
+      "gitBranch": "main",
+      "projectPath": "C:\\Users\\jeffkit\\OneDrive - CDW\\Claude_Code_testing\\DocGitTest",
+      "isSidechain": false
+    },
+    {
+      "sessionId": "f8a390b7-61a2-41cc-880f-de8eac45306d",
+      "fullPath": "C:\\Users\\jeffkit\\.claude\\projects\\C--Users-jeffkit-OneDrive---CDW-Claude-Code-testing-DocGitTest\\f8a390b7-61a2-41cc-880f-de8eac45306d.jsonl",
+      "fileMtime": 1769786622513,
+      "firstPrompt": "<command-message>taches-cc-resources:\\consider:first-principles</command-message> <command-name>/taches-cc-resources:\\consider:first-principles</command-name> <command-args>my server is not working wi…",
+      "summary": "ESXi Purple Screen Troubleshooting Prompt Creation",
+      "messageCount": 27,
+      "created": "2025-12-31T15:30:59.086Z",
+      "modified": "2025-12-31T21:30:26.138Z",
+      "gitBranch": "main",
+      "projectPath": "C:\\Users\\jeffkit\\OneDrive - CDW\\Claude_Code_testing\\DocGitTest",
+      "isSidechain": false
+    }
+  ],
+  "originalPath": "C:\\Users\\jeffkit\\OneDrive - CDW\\Claude_Code_testing\\DocGitTest"
+}

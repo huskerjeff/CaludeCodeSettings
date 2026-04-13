@@ -1,0 +1,9 @@
+{
+  "enabledPlugins": {
+    "commit-commands@claude-plugins-official": true,
+    "learning-output-style@claude-plugins-official": false,
+    "document-skills@anthropic-agent-skills": true,
+    "example-skills@anthropic-agent-skills": true,
+    "taches-cc-resources@taches-cc-resources": true
+  }
+}

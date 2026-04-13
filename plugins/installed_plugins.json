@@ -1,0 +1,52 @@
+{
+  "version": 2,
+  "plugins": {
+    "commit-commands@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\jeffkit\\.claude\\plugins\\cache\\claude-plugins-official\\commit-commands\\7ed523140f50",
+        "version": "7ed523140f50",
+        "installedAt": "2025-12-29T15:51:20.303Z",
+        "lastUpdated": "2026-04-13T14:04:44.606Z"
+      }
+    ],
+    "learning-output-style@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\jeffkit\\.claude\\plugins\\cache\\claude-plugins-official\\learning-output-style\\1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2025-12-29T15:52:41.082Z",
+        "lastUpdated": "2026-03-31T14:01:00.568Z"
+      }
+    ],
+    "document-skills@anthropic-agent-skills": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\jeffkit\\.claude\\plugins\\cache\\anthropic-agent-skills\\document-skills\\69c0b1a06741",
+        "version": "69c0b1a06741",
+        "installedAt": "2025-12-29T16:42:04.847Z",
+        "lastUpdated": "2025-12-29T16:42:04.847Z",
+        "gitCommitSha": "69c0b1a0674149f27b61b2635f935524b6add202"
+      }
+    ],
+    "example-skills@anthropic-agent-skills": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\jeffkit\\.claude\\plugins\\cache\\anthropic-agent-skills\\example-skills\\69c0b1a06741",
+        "version": "69c0b1a06741",
+        "installedAt": "2025-12-29T16:42:04.847Z",
+        "lastUpdated": "2025-12-29T16:42:04.847Z",
+        "gitCommitSha": "69c0b1a0674149f27b61b2635f935524b6add202"
+      }
+    ],
+    "taches-cc-resources@taches-cc-resources": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\jeffkit\\.claude\\plugins\\cache\\taches-cc-resources\\taches-cc-resources\\1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2025-12-30T22:53:25.090Z",
+        "lastUpdated": "2025-12-30T22:53:25.090Z"
+      }
+    ]
+  }
+}

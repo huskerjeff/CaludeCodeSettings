@@ -1,0 +1,26 @@
+{
+  "claude-plugins-official": {
+    "source": {
+      "source": "github",
+      "repo": "anthropics/claude-plugins-official"
+    },
+    "installLocation": "C:\\Users\\jeffkit\\.claude\\plugins\\marketplaces\\claude-plugins-official",
+    "lastUpdated": "2026-04-13T14:04:44.452Z"
+  },
+  "anthropic-agent-skills": {
+    "source": {
+      "source": "github",
+      "repo": "anthropics/skills"
+    },
+    "installLocation": "C:\\Users\\jeffkit\\.claude\\plugins\\marketplaces\\anthropic-agent-skills",
+    "lastUpdated": "2025-12-29T16:40:39.528Z"
+  },
+  "taches-cc-resources": {
+    "source": {
+      "source": "github",
+      "repo": "glittercowboy/taches-cc-resources"
+    },
+    "installLocation": "C:\\Users\\jeffkit\\.claude\\plugins\\marketplaces\\taches-cc-resources",
+    "lastUpdated": "2025-12-30T22:52:26.375Z"
+  }
+}

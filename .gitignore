@@ -1,0 +1,30 @@
+# Auth & credentials - never commit
+.credentials.json
+
+# Cache & temp files
+cache/
+stats-cache.json
+mcp-needs-auth-cache.json
+statsig/
+
+# Session & history - machine specific
+sessions/
+history.jsonl
+shell-snapshots/
+file-history/
+
+# Todos - ephemeral task state
+todos/
+
+# Debug & telemetry
+debug/
+telemetry/
+usage-data/
+
+# IDE & browser state - machine specific
+ide/
+chrome/
+
+# Downloads & backups - machine specific
+downloads/
+backups/
