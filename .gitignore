@@ -9,6 +9,7 @@ statsig/
 
 # Session & history - machine specific
 sessions/
+session-env/
 history.jsonl
 shell-snapshots/
 file-history/
@@ -29,5 +30,8 @@ chrome/
 downloads/
 backups/
 
+# Projects - machine specific session data
+projects/
+
 # Plugin marketplaces - re-downloaded by Claude Code automatically
-plugins/marketplaces/
+plugins/
