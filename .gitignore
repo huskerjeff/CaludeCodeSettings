@@ -27,8 +27,11 @@ chrome/
 downloads/
 backups/
 
-# Projects - machine specific session data
-projects/
+# Projects - exclude session/agent data, keep memory
+projects/**/*.jsonl
+projects/**/subagents/
+projects/**/tool-results/
+projects/**/sessions-index.json
 
 # Plugin marketplaces - re-downloaded by Claude Code automatically
 plugins/
