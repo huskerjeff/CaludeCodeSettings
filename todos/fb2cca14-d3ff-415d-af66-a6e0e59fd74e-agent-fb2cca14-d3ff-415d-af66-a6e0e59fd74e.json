@@ -1,0 +1,17 @@
+[
+  {
+    "content": "Research homelab compute platforms and virtualization options",
+    "status": "completed",
+    "activeForm": "Research homelab compute platforms and virtualization options"
+  },
+  {
+    "content": "Synthesize findings on compute options comparison",
+    "status": "in_progress",
+    "activeForm": "Synthesizing findings on compute options comparison"
+  },
+  {
+    "content": "Generate comprehensive report using report-generator agent",
+    "status": "pending",
+    "activeForm": "Generating comprehensive report using report-generator agent"
+  }
+]
