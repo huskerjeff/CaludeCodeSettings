@@ -2,7 +2,7 @@
 name: notebooklm
 description: Complete API for Google NotebookLM - full programmatic access including features not in the web UI. Create notebooks, add sources, generate all artifact types, download in multiple formats. Activates on explicit /notebooklm or intent like "create a podcast about X"
 ---
-<!-- notebooklm-py v0.3.4 -->
+<!-- notebooklm-py v0.3.4 - updated with all v0.3.4 commands -->
 
 
 # NotebookLM Automation
@@ -91,8 +91,20 @@ Before starting workflows, verify the CLI is ready:
 - `notebooklm status` - check context
 - `notebooklm auth check` - diagnose auth issues
 - `notebooklm list` - list notebooks
+- `notebooklm summary` - AI-generated notebook summary
+- `notebooklm metadata` - export notebook metadata with sources
 - `notebooklm source list` - list sources
+- `notebooklm source get` - get source details
+- `notebooklm source stale` - check if source needs refresh
+- `notebooklm source guide` - get AI summary/keywords for a source
+- `notebooklm source fulltext` - get indexed text of a source
 - `notebooklm artifact list` - list artifacts
+- `notebooklm artifact get` - get artifact details
+- `notebooklm artifact suggestions` - get AI-suggested report topics
+- `notebooklm artifact poll` - single status check (non-blocking)
+- `notebooklm note list` - list notes
+- `notebooklm note get` - get note content
+- `notebooklm share status` - show sharing status
 - `notebooklm language list` - list supported languages
 - `notebooklm language get` - get current language
 - `notebooklm language set` - set language (global setting)
@@ -102,19 +114,34 @@ Before starting workflows, verify the CLI is ready:
 - `notebooklm research wait` - wait for research (in subagent context)
 - `notebooklm use <id>` - set context (⚠️ SINGLE-AGENT ONLY - use `-n` flag in parallel workflows)
 - `notebooklm create` - create notebook
+- `notebooklm rename` - rename notebook
+- `notebooklm configure` - configure chat persona/mode/response length
 - `notebooklm ask "..."` - chat queries (without `--save-as-note`)
 - `notebooklm history` - display conversation history (read-only)
 - `notebooklm source add` - add sources
+- `notebooklm source add-drive` - add Google Drive doc as source
+- `notebooklm source rename` - rename a source
+- `notebooklm source refresh` - refresh a URL/Drive source
+- `notebooklm artifact rename` - rename an artifact
+- `notebooklm note create` - create a note
+- `notebooklm note rename` - rename a note
+- `notebooklm note save` - update note content
 
 **Ask before running:**
-- `notebooklm delete` - destructive
+- `notebooklm delete` - destructive (notebook)
+- `notebooklm note delete` - destructive
+- `notebooklm source delete` / `source delete-by-title` - destructive
+- `notebooklm artifact delete` - destructive
 - `notebooklm generate *` - long-running, may fail
 - `notebooklm download *` - writes to filesystem
+- `notebooklm artifact export` - exports to Google Docs/Sheets
 - `notebooklm artifact wait` - long-running (when in main conversation)
 - `notebooklm source wait` - long-running (when in main conversation)
 - `notebooklm research wait` - long-running (when in main conversation)
 - `notebooklm ask "..." --save-as-note` - writes a note
 - `notebooklm history --save` - writes a note
+- `notebooklm share public` - changes public access
+- `notebooklm share add` / `share update` / `share remove` - changes who has access
 
 ## Quick Reference
 
@@ -123,21 +150,39 @@ Before starting workflows, verify the CLI is ready:
 | Authenticate | `notebooklm login` |
 | Diagnose auth issues | `notebooklm auth check` |
 | Diagnose auth (full) | `notebooklm auth check --test` |
+| **Notebooks** | |
 | List notebooks | `notebooklm list` |
 | Create notebook | `notebooklm create "Title"` |
+| Rename notebook | `notebooklm rename "New Title"` |
+| Delete notebook | `notebooklm delete` |
 | Set context | `notebooklm use <notebook_id>` |
 | Show context | `notebooklm status` |
+| Get notebook summary (AI) | `notebooklm summary` |
+| Get notebook summary + topics | `notebooklm summary --topics` |
+| Export metadata + sources list | `notebooklm metadata` |
+| Configure chat persona/mode | `notebooklm configure --mode learning-guide` |
+| Configure custom persona | `notebooklm configure --persona "Act as a tutor"` |
+| Configure response length | `notebooklm configure --response-length longer` |
+| **Sources** | |
 | Add URL source | `notebooklm source add "https://..."` |
 | Add file | `notebooklm source add ./file.pdf` |
 | Add YouTube | `notebooklm source add "https://youtube.com/..."` |
+| Add Google Drive doc | `notebooklm source add-drive <file_id> "Title"` |
 | List sources | `notebooklm source list` |
+| Get source details | `notebooklm source get <source_id>` |
+| Rename source | `notebooklm source rename <source_id> "New Title"` |
+| Refresh URL/Drive source | `notebooklm source refresh <source_id>` |
+| Check if source is stale | `notebooklm source stale <source_id>` |
 | Delete source by ID | `notebooklm source delete <source_id>` |
 | Delete source by exact title | `notebooklm source delete-by-title "Exact Title"` |
 | Wait for source processing | `notebooklm source wait <source_id>` |
+| Get source fulltext | `notebooklm source fulltext <source_id>` |
+| Get source guide (AI summary) | `notebooklm source guide <source_id>` |
 | Web research (fast) | `notebooklm source add-research "query"` |
 | Web research (deep) | `notebooklm source add-research "query" --mode deep --no-wait` |
 | Check research status | `notebooklm research status` |
 | Wait for research | `notebooklm research wait --import-all` |
+| **Chat** | |
 | Chat | `notebooklm ask "question"` |
 | Chat (specific sources) | `notebooklm ask "question" -s src_id1 -s src_id2` |
 | Chat (with references) | `notebooklm ask "question" --json` |
@@ -147,20 +192,36 @@ Before starting workflows, verify the CLI is ready:
 | Save all history as note | `notebooklm history --save` |
 | Continue specific conversation | `notebooklm ask "question" -c <conversation_id>` |
 | Save history with title | `notebooklm history --save --note-title "My Research"` |
-| Get source fulltext | `notebooklm source fulltext <source_id>` |
-| Get source guide | `notebooklm source guide <source_id>` |
+| **Notes** | |
+| List notes | `notebooklm note list` |
+| Create note | `notebooklm note create "Content" -t "Title"` |
+| Get note content | `notebooklm note get <note_id>` |
+| Update note content | `notebooklm note save <note_id> "New content"` |
+| Rename note | `notebooklm note rename <note_id> "New Title"` |
+| Delete note | `notebooklm note delete <note_id>` |
+| **Artifacts** | |
+| List artifacts | `notebooklm artifact list` |
+| Get artifact details | `notebooklm artifact get <artifact_id>` |
+| Rename artifact | `notebooklm artifact rename <artifact_id> "New Title"` |
+| Delete artifact | `notebooklm artifact delete <artifact_id>` |
+| Get AI-suggested report topics | `notebooklm artifact suggestions` |
+| Export to Google Docs/Sheets | `notebooklm artifact export <artifact_id> --title "Doc Title" --type docs` |
+| Poll status (single check) | `notebooklm artifact poll <artifact_id>` |
+| Wait for completion | `notebooklm artifact wait <artifact_id>` |
+| **Generation** | |
 | Generate podcast | `notebooklm generate audio "instructions"` |
 | Generate podcast (JSON) | `notebooklm generate audio --json` |
 | Generate podcast (specific sources) | `notebooklm generate audio -s src_id1 -s src_id2` |
 | Generate video | `notebooklm generate video "instructions"` |
+| Generate cinematic video (Veo 3, Ultra only) | `notebooklm generate cinematic-video "description"` |
 | Generate report | `notebooklm generate report --format briefing-doc` |
 | Generate report (append instructions) | `notebooklm generate report --format study-guide --append "Target audience: beginners"` |
 | Generate quiz | `notebooklm generate quiz` |
 | Revise a slide | `notebooklm generate revise-slide "prompt" --artifact <id> --slide 0` |
-| Check artifact status | `notebooklm artifact list` |
-| Wait for completion | `notebooklm artifact wait <artifact_id>` |
+| **Downloads** | |
 | Download audio | `notebooklm download audio ./output.mp3` |
 | Download video | `notebooklm download video ./output.mp4` |
+| Download cinematic video | `notebooklm download cinematic-video ./output.mp4` |
 | Download slide deck (PDF) | `notebooklm download slide-deck ./slides.pdf` |
 | Download slide deck (PPTX) | `notebooklm download slide-deck ./slides.pptx --format pptx` |
 | Download report | `notebooklm download report ./report.md` |
@@ -170,7 +231,15 @@ Before starting workflows, verify the CLI is ready:
 | Download quiz (markdown) | `notebooklm download quiz --format markdown quiz.md` |
 | Download flashcards | `notebooklm download flashcards cards.json` |
 | Download flashcards (markdown) | `notebooklm download flashcards --format markdown cards.md` |
-| Delete notebook | `notebooklm notebook delete <id>` |
+| **Sharing** | |
+| Show sharing status | `notebooklm share status` |
+| Enable public link | `notebooklm share public --enable` |
+| Disable public link | `notebooklm share public --disable` |
+| Set viewer access level | `notebooklm share view-level` |
+| Share with user | `notebooklm share add user@example.com --permission viewer` |
+| Update user permission | `notebooklm share update user@example.com --permission editor` |
+| Remove user access | `notebooklm share remove user@example.com` |
+| **Language** | |
 | List languages | `notebooklm language list` |
 | Get language | `notebooklm language get` |
 | Set language | `notebooklm language set zh_Hans` |
@@ -234,7 +303,8 @@ All generate commands support:
 | Type | Command | Options | Download |
 |------|---------|---------|----------|
 | Podcast | `generate audio` | `--format [deep-dive\|brief\|critique\|debate]`, `--length [short\|default\|long]` | .mp3 |
-| Video | `generate video` | `--format [explainer\|brief]`, `--style [auto\|classic\|whiteboard\|kawaii\|anime\|watercolor\|retro-print\|heritage\|paper-craft]` | .mp4 |
+| Video | `generate video` | `--format [explainer\|brief\|cinematic]`, `--style [auto\|classic\|whiteboard\|kawaii\|anime\|watercolor\|retro-print\|heritage\|paper-craft]` | .mp4 |
+| Cinematic Video | `generate cinematic-video` | Alias for `generate video --format cinematic`. Requires Google AI Ultra. Uses Veo 3. | .mp4 |
 | Slide Deck | `generate slide-deck` | `--format [detailed\|presenter]`, `--length [default\|short]` | .pdf / .pptx |
 | Slide Revision | `generate revise-slide "prompt" --artifact <id> --slide N` | `--wait`, `--notebook` | *(re-downloads parent deck)* |
 | Infographic | `generate infographic` | `--orientation [landscape\|portrait\|square]`, `--detail [concise\|standard\|detailed]`, `--style [auto\|sketch-note\|professional\|bento-grid\|editorial\|instructional\|bricks\|clay\|anime\|kawaii\|scientific]` | .png |
@@ -258,8 +328,18 @@ These capabilities are available via CLI but not in NotebookLM's web interface:
 | **Slide revision** | `generate revise-slide "prompt" --artifact <id> --slide N` | Modify individual slides with a natural-language prompt |
 | **Report template append** | `generate report --format study-guide --append "..."` | Append custom instructions to built-in format templates without losing the format type |
 | **Source fulltext** | `source fulltext <id>` | Retrieve the indexed text content of any source |
+| **Source staleness check** | `source stale <id>` | Check if a URL/Drive source needs refreshing (shell-scriptable exit codes) |
+| **Source refresh** | `source refresh <id>` | Re-index a URL or Google Drive source |
 | **Save chat to note** | `ask "..." --save-as-note` / `history --save` | Save Q&A answers or conversation history as notebook notes |
-| **Programmatic sharing** | `share` commands | Manage sharing permissions without the UI |
+| **Note management** | `note list/create/get/save/rename/delete` | Full CRUD for notebook notes via CLI |
+| **Programmatic sharing** | `share status/public/add/update/remove` | Manage sharing permissions without the UI |
+| **Export to Google Docs/Sheets** | `artifact export <id> --title "..." --type docs` | Export artifacts directly to Google Drive |
+| **AI-suggested topics** | `artifact suggestions` | Get AI-recommended report topics based on notebook content |
+| **Notebook summary** | `summary --topics` | Get AI-generated insights and suggested topics for a notebook |
+| **Notebook metadata** | `metadata` | Export full metadata + sources list as JSON |
+| **Chat persona config** | `configure --persona "..."` | Set custom AI persona or predefined mode (learning-guide, concise, detailed) |
+| **Cinematic video** | `generate cinematic-video` | Veo 3 AI documentary-style video (requires Google AI Ultra) |
+| **Google Drive sources** | `source add-drive <file_id> "Title"` | Add Google Docs/Slides/Sheets/PDFs from Drive as sources |
 
 ## Common Workflows
 
@@ -550,12 +630,13 @@ notebooklm language get --local  # Read local config only
 notebooklm --help              # Main commands
 notebooklm auth check          # Diagnose auth issues
 notebooklm auth check --test   # Full auth validation with network test
-notebooklm notebook --help     # Notebook management
 notebooklm source --help       # Source management
 notebooklm research --help     # Research status/wait
 notebooklm generate --help     # Content generation
 notebooklm artifact --help     # Artifact management
 notebooklm download --help     # Download content
+notebooklm note --help         # Note management
+notebooklm share --help        # Sharing management
 notebooklm language --help     # Language settings
 ```
 
