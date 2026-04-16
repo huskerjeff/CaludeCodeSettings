@@ -56,12 +56,28 @@ playwright-cli press Enter
 
 On the CDW corporate laptop, corporate security software locks Chrome's User Data profile directory, preventing `--profile` from working. Google sign-in also blocks Playwright-automated browsers ("This browser or app may not be secure"). Use **Edge with your real profile** and **Gemini** instead of claude.ai:
 
+#### Opening Gemini (must follow this exact sequence)
+
 ```bash
+# Step 1: Always close existing playwright sessions first to release profile lock
+playwright-cli close-all
+
+# Step 2: Open Gemini in Edge with the real profile
 playwright-cli open --browser=msedge --headed --profile="C:\Users\jeffkit\AppData\Local\Microsoft\Edge\User Data" https://gemini.google.com/
 ```
 
+#### CDW laptop rules
+
+- **Always run `playwright-cli close-all` first** — the real Edge profile can only be used by one process; stale sessions lock it
 - **Use `--browser=msedge`** — Edge's profile is not locked by security software
 - **Use `--profile`** (not `--persistent`) — uses your real Edge profile with existing Google login
 - **Use Gemini** — already signed in via Google; claude.ai requires a separate login that gets blocked
+- **`--profile` restores all previous Edge tabs** — if Edge had many tabs open, they all reopen. Close Edge gracefully before launching via playwright-cli, or use `attach --cdp=msedge` to connect to an already-running Edge
+- **`--profile` mode does not maintain a persistent control connection** — the `open` command exits after navigation, so subsequent `snapshot`/`click` commands may fail. Use `attach --cdp=msedge` if you need ongoing interaction with an already-running Edge
+- **Do NOT use `--persistent`** — it creates a separate empty profile without Google login
 - All other critical rules (no `&&` chaining, `--headed`, role locators, separate Bash calls) still apply
+
+### playwright-cli skill
+
+A comprehensive `playwright-cli` skill is available at `~/.claude/skills/playwright-cli/SKILL.md` with full command reference including `attach --cdp`, session management, storage, network mocking, tracing, and video recording. The skill is loaded automatically when browser automation is needed.
 
