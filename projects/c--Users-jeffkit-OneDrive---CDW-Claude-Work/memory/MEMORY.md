@@ -60,6 +60,8 @@ Each project folder contains:
 
 ## Feedback & Preferences
 - [feedback_sl1_templates.md](feedback_sl1_templates.md) — Using templates with SL1 is very helpful
+- [feedback_gemini_playwright.md](feedback_gemini_playwright.md) — "Open Gemini" means use playwright-cli with Edge to open gemini.google.com
+- [feedback_session_injection.md](feedback_session_injection.md) — Session Injection: isolated profile + cookie injection bypasses profile locks and Cloudflare
 
 ## External References
 - [reference_snow_test_instance.md](reference_snow_test_instance.md) — ServiceNow test instance URL (siriuscomtest)
