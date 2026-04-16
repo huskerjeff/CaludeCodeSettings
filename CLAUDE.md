@@ -52,3 +52,16 @@ playwright-cli press Enter
 - `playwright-cli open https://claude.ai` — headless, Cloudflare blocks it
 - `playwright-cli open --browser=chrome --persistent https://claude.ai` — still headless, still blocked
 
+### CDW laptop (LT-AAD-F9FHV96C) — Edge + Gemini
+
+On the CDW corporate laptop, corporate security software locks Chrome's User Data profile directory, preventing `--profile` from working. Google sign-in also blocks Playwright-automated browsers ("This browser or app may not be secure"). Use **Edge with your real profile** and **Gemini** instead of claude.ai:
+
+```bash
+playwright-cli open --browser=msedge --headed --profile="C:\Users\jeffkit\AppData\Local\Microsoft\Edge\User Data" https://gemini.google.com/
+```
+
+- **Use `--browser=msedge`** — Edge's profile is not locked by security software
+- **Use `--profile`** (not `--persistent`) — uses your real Edge profile with existing Google login
+- **Use Gemini** — already signed in via Google; claude.ai requires a separate login that gets blocked
+- All other critical rules (no `&&` chaining, `--headed`, role locators, separate Bash calls) still apply
+
