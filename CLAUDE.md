@@ -142,3 +142,66 @@ playwright-cli open --browser=msedge --headed --profile="C:\Users\jeffkit\AppDat
 
 A comprehensive `playwright-cli` skill is available at `~/.claude/skills/playwright-cli/SKILL.md` with full command reference including `attach --cdp`, session management, storage, network mocking, tracing, and video recording. The skill is loaded automatically when browser automation is needed.
 
+---
+
+## Automating Windows Desktop Apps (Calculator, etc.) with PowerShell
+
+Use UI Automation to click named buttons — more reliable than SendKeys for UWP apps like Calculator.
+
+### Open an app
+
+```bash
+start calc       # Calculator
+start notepad    # Notepad
+```
+
+### Interact with Calculator via UI Automation (preferred)
+
+```powershell
+Add-Type -AssemblyName UIAutomationClient
+Add-Type -AssemblyName UIAutomationTypes
+
+$desktop = [System.Windows.Automation.AutomationElement]::RootElement
+$calcCondition = New-Object System.Windows.Automation.PropertyCondition(
+    [System.Windows.Automation.AutomationElement]::NameProperty, 'Calculator')
+$calc = $desktop.FindFirst([System.Windows.Automation.TreeScope]::Children, $calcCondition)
+
+function Click-Button($name) {
+    $condition = New-Object System.Windows.Automation.PropertyCondition(
+        [System.Windows.Automation.AutomationElement]::NameProperty, $name)
+    $btn = $calc.FindFirst([System.Windows.Automation.TreeScope]::Descendants, $condition)
+    $invoke = $btn.GetCurrentPattern([System.Windows.Automation.InvokePattern]::Pattern)
+    $invoke.Invoke()
+    Start-Sleep -Milliseconds 150
+}
+
+# Example: 5 x 4 = 20
+Click-Button 'Clear'
+Click-Button 'Five'
+Click-Button 'Multiply by'
+Click-Button 'Four'
+Click-Button 'Equals'
+```
+
+### Button names reference (Standard/Scientific mode)
+
+| Button | Name |
+|--------|------|
+| 0–9 | `Zero` `One` `Two` ... `Nine` |
+| + | `Plus` |
+| - | `Minus` |
+| × | `Multiply by` |
+| ÷ | `Divide by` |
+| = | `Equals` |
+| C | `Clear` |
+| ⌫ | `Backspace` |
+| . | `Decimal separator` |
+
+### Key notes
+
+- **Always `Click-Button 'Clear'` first** — clears previous result before a new calculation.
+- **`AppActivate` does NOT work for UWP apps** — throws "Process not found" even when process exists.
+- **SendKeys is unreliable for UWP** — focus issues cause keystrokes to go to wrong window or carry over previous state.
+- **If `$calc` is null**, app may not be open yet — add `Start-Sleep -Milliseconds 1500` after `start calc`.
+- **Discover button names**: `$calc.FindAll([System.Windows.Automation.TreeScope]::Descendants, [System.Windows.Automation.Condition]::TrueCondition) | ForEach-Object { $_.Current.Name }`
+
