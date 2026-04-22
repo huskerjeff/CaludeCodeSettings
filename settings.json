@@ -5,5 +5,6 @@
     "document-skills@anthropic-agent-skills": true,
     "example-skills@anthropic-agent-skills": true,
     "taches-cc-resources@taches-cc-resources": true
-  }
+  },
+  "model": "opus"
 }

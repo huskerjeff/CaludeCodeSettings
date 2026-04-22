@@ -14,10 +14,28 @@ Auth check → create blank notebook → add source → wait → get notebook ti
 <inputs>
 - `URL` — YouTube URL (required)
 - `ETHAN_MODE` — set to true if user says "for Ethan", "it is for Ethan", or passes `--ethan`
-- `LEARNING_DIR` — `C:\Users\huske\OneDrive\ClaudeCode_Life\Learning`
+- `LEARNING_DIR` — auto-detected in Step 0 by `_resolve_paths.py`. Override with the `LEARNING_DIR` env var.
 </inputs>
 
 <process>
+
+---
+
+## STEP 0 — RESOLVE LEARNING DIRECTORY
+
+Auto-detect the machine-local Learning folder. Store the result as `LEARNING_DIR`.
+
+```bash
+python "<SKILL_DIR>\_resolve_paths.py" learning
+```
+
+Replace `<SKILL_DIR>` with the absolute path to this skill's folder (the directory containing this `SKILL.md`). The helper probes, in order:
+1. `$env:LEARNING_DIR` (explicit override)
+2. `~\OneDrive\ClaudeCode_Life\Learning`
+3. `~\OneDrive - CDW\Claude_Work\Learning`
+4. `~\ClaudeCode_Life\Learning`
+
+It picks the first that exists, else the first whose parent exists, else the last fallback.
 
 ---
 
@@ -86,7 +104,7 @@ Sanitize `NOTEBOOK_TITLE` for use as a folder name (replace `: / \ * ? " < > |` 
 Check if `<LEARNING_DIR>\<FOLDER_NAME>\` already exists:
 
 ```bash
-python -c "import os; print(os.path.exists(r'C:\Users\huske\OneDrive\ClaudeCode_Life\Learning\<FOLDER_NAME>'))"
+python -c "import os, sys; print(os.path.exists(os.path.join(sys.argv[1], sys.argv[2])))" "<LEARNING_DIR>" "<FOLDER_NAME>"
 ```
 
 If the folder **already exists**, warn the user:
@@ -103,10 +121,10 @@ Then stop.
 ## STEP 7 — CREATE LEARNING FOLDER
 
 ```bash
-python -c "import os; os.makedirs(r'C:\Users\huske\OneDrive\ClaudeCode_Life\Learning\<FOLDER_NAME>', exist_ok=True)"
+python -c "import os, sys; os.makedirs(os.path.join(sys.argv[1], sys.argv[2]), exist_ok=True)" "<LEARNING_DIR>" "<FOLDER_NAME>"
 ```
 
-Store `OUTPUT_DIR` = `C:\Users\huske\OneDrive\ClaudeCode_Life\Learning\<FOLDER_NAME>`.
+Store `OUTPUT_DIR` = `<LEARNING_DIR>\<FOLDER_NAME>`.
 
 Print:
 ```
@@ -257,9 +275,13 @@ Repeat until snapshot shows `button "Download"` on a DOCX artifact. Then click i
 playwright-cli click "getByRole('button', { name: 'Download', exact: true })"
 ```
 
-The DOCX will download to `.playwright-cli\`. Move the most recently created DOCX to the output folder:
+The DOCX will download to `.playwright-cli\` (location depends on playwright-cli's working dir). Find the most recently created DOCX across known candidates and move it to the output folder:
 ```bash
-python -c "import os, glob, shutil; f = max(glob.glob(r'C:\Users\huske\OneDrive\ClaudeCode_Life\.playwright-cli\*.docx'), key=os.path.getctime); shutil.move(f, r'<OUTPUT_DIR>\<SLUG>-lesson-plan.docx'); print('Moved:', f)"
+python "<SKILL_DIR>\_resolve_paths.py" latest-docx
+```
+Then move the reported file (override via `PLAYWRIGHT_DOWNLOADS_DIR` env var if needed):
+```bash
+python -c "import shutil, sys; shutil.move(sys.argv[1], sys.argv[2]); print('Moved:', sys.argv[1])" "<LATEST_DOCX_PATH>" "<OUTPUT_DIR>\<SLUG>-lesson-plan.docx"
 ```
 
 ---

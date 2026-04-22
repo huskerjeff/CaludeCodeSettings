@@ -39,4 +39,4 @@ plugins/
 # Playwright Session Data
 claude_session.json
 .playwright-cli/
-.claude/claude_profile/
+claude_profile/

@@ -61,6 +61,7 @@ Each project folder contains:
 ## Feedback & Preferences
 - [feedback_sl1_templates.md](feedback_sl1_templates.md) — Using templates with SL1 is very helpful
 - [feedback_gemini_playwright.md](feedback_gemini_playwright.md) — "Open Gemini" means use playwright-cli with Edge to open gemini.google.com
+- [feedback_no_notebooklm.md](feedback_no_notebooklm.md) — Do not use notebooklm or notebooklm-research skills
 - [feedback_session_injection.md](feedback_session_injection.md) — Session Injection: isolated profile + cookie injection bypasses profile locks and Cloudflare
 
 ## External References

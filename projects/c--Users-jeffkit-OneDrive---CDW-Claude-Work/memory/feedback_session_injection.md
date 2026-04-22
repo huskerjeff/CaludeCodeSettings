@@ -19,7 +19,8 @@ originSessionId: 587782e4-14fd-49ea-9b34-fb4928ec5c82
    ```
 
 **Key advantage over `--profile` with real User Data:** 
-- No profile lock conflicts — can run alongside normal Edge
-- `--persistent` maintains control connection (snapshot, click, etc. keep working)
-- Cookies persist across sessions in the isolated profile
-- Avoids restoring 25+ previous Edge tabs
+- **Simultaneous Execution:** Can run alongside your main Edge browser sessions. No `playwright-cli close-all` is required.
+- No profile lock conflicts.
+- `--persistent` maintains control connection (snapshot, click, etc. keep working).
+- Cookies persist across sessions in the isolated profile.
+- Avoids restoring 25+ previous Edge tabs from the main profile.

@@ -1,0 +1,1 @@
+- [claude_session.json is per-machine, not per-user](feedback_session_file_per_machine.md) — machine-specific Cloudflare clearance cookies; regenerate on each laptop, already gitignored

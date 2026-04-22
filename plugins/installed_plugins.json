@@ -4,10 +4,10 @@
     "commit-commands@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "C:\\Users\\jeffkit\\.claude\\plugins\\cache\\claude-plugins-official\\commit-commands\\3497bd7c3f2e",
-        "version": "3497bd7c3f2e",
+        "installPath": "C:\\Users\\jeffkit\\.claude\\plugins\\cache\\claude-plugins-official\\commit-commands\\6b5e08df3442",
+        "version": "6b5e08df3442",
         "installedAt": "2025-12-29T15:51:20.303Z",
-        "lastUpdated": "2026-04-14T16:19:18.976Z"
+        "lastUpdated": "2026-04-17T13:22:50.190Z"
       }
     ],
     "learning-output-style@claude-plugins-official": [
