@@ -97,6 +97,7 @@ The core problem: Cloudflare and claude.ai block automated browsers that aren't 
 - Created with `playwright-cli state-save claude_session.json`
 - Stored at `~/.claude/claude_session.json` for safekeeping
 - Must be copied to the working directory before `state-load` (sandbox restricts file access to working directory)
+- **When cookies go stale**, refresh them via the CDP procedure in `~/.claude/reference/CDP-Session-Refresh-Process.md` (launch Edge with `--remote-debugging-port=9222`, user logs in, then `playwright-cli attach --cdp=http://localhost:9222 && playwright-cli state-save claude_session.json`)
 - Cookies expire over time — if `goto` redirects to `/logout` or login page, recapture by logging in manually and running `state-save` again
 
 **First-time setup:**

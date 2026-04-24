@@ -63,6 +63,7 @@ Each project folder contains:
 - [feedback_gemini_playwright.md](feedback_gemini_playwright.md) — "Open Gemini" means use playwright-cli with Edge to open gemini.google.com
 - [feedback_no_notebooklm.md](feedback_no_notebooklm.md) — Do not use notebooklm or notebooklm-research skills
 - [feedback_session_injection.md](feedback_session_injection.md) — Session Injection: isolated profile + cookie injection bypasses profile locks and Cloudflare
+- [feedback_session_refresh_cdp.md](feedback_session_refresh_cdp.md) — Refresh claude_session.json via Edge --remote-debugging-port + attach --cdp + state-save (chain with &&)
 
 ## External References
 - [reference_snow_test_instance.md](reference_snow_test_instance.md) — ServiceNow test instance URL (siriuscomtest)
