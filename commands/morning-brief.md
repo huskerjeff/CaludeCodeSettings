@@ -33,7 +33,7 @@ Working directory: c:\Users\jeffkit\OneDrive - CDW\Claude_Work
    - Extract name, status, end date, and Next Action from each PROJECT.md
    - Only include projects with status 🟡 In Progress or 🔴 Not Started
 
-4. Write brief to `Morning Brief/YYYY-MM-DD.md` (use today's date):
+4. Write brief to `Morning_Briefs/YYYY-MM-DD.md` (use today's date):
    - If file already exists, overwrite it with the refreshed brief
    - Use the output format below exactly
 
@@ -41,7 +41,7 @@ Working directory: c:\Users\jeffkit\OneDrive - CDW\Claude_Work
 </process>
 
 <output>
-File: `Morning Brief/YYYY-MM-DD.md`
+File: `Morning_Briefs/YYYY-MM-DD.md`
 
 ```markdown
 # [Full Day Name], [Month Day, Year]
@@ -86,6 +86,6 @@ _Add notes here as the day progresses._
 - High priority tasks sorted oldest first
 - Project links noted inline for linked tasks
 - Only In Progress or Not Started projects shown in the table
-- Brief written to correct dated file in Morning Brief/
+- Brief written to correct dated file in Morning_Briefs/
 - Full content displayed in chat
 </success_criteria>

@@ -1,5 +1,7 @@
 # Claude Instructions
 
+@C:/Users/jeffkit/OneDrive - CDW/Claude_Work/BrowserHarness/browser-harness/SKILL.md
+
 ## Automating claude.ai with playwright-cli
 
 Use `playwright-cli` (`@playwright/cli`) — NOT `playwright` (`@playwright/test`). The testing framework runs headless and gets blocked by Cloudflare.

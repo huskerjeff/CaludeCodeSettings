@@ -1,0 +1,5 @@
+- [Verify each step before chaining](feedback_step_by_step.md) — Test multi-step UI automation one step at a time before stringing them together
+- [Prefer mouse-free automation when possible](feedback_no_mouse.md) — Use UIA Invoke / SelectionItem patterns over real mouse clicks so the user can keep working
+- [Verify before assuming an action failed](feedback_verify_dont_assume.md) — Don't preemptively pivot to fallbacks; check the actual result first
+- [playwright-cli iframe ref addressing](feedback_playwright_cli_iframe_refs.md) — Use snapshot ref IDs (not locator strings) for iframe-nested elements; CLI auto-resolves iframe traversal
+- [ServiceNow (siriuscom) UI selectors](reference_servicenow_ui.md) — Search is a combobox not textbox; ticket form lives in gsft_main iframe; Ctrl+End scrolls iframe content

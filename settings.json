@@ -5,7 +5,21 @@
     "learning-output-style@claude-plugins-official": false,
     "document-skills@anthropic-agent-skills": true,
     "example-skills@anthropic-agent-skills": true,
-    "taches-cc-resources@taches-cc-resources": true
+    "taches-cc-resources@taches-cc-resources": true,
+    "teamwork@promptadvisers-teamwork": true
   },
-  "effortLevel": "xhigh"
+  "extraKnownMarketplaces": {
+    "promptadvisers-teamwork": {
+      "source": {
+        "source": "directory",
+        "path": "C:\\Users\\jeffkit\\OneDrive - CDW\\Claude_Work\\TeamWork"
+      }
+    }
+  },
+  "effortLevel": "medium",
+  "skipDangerousModePermissionPrompt": true,
+  "statusLine": {
+    "type": "command",
+    "command": "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\Users\\jeffkit\\.claude\\statusline.ps1"
+  }
 }

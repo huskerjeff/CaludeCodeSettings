@@ -4,10 +4,10 @@
     "commit-commands@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "C:\\Users\\jeffkit\\.claude\\plugins\\cache\\claude-plugins-official\\commit-commands\\ddbdf516a61f",
-        "version": "ddbdf516a61f",
+        "installPath": "C:\\Users\\jeffkit\\.claude\\plugins\\cache\\claude-plugins-official\\commit-commands\\1a884c60cdc9",
+        "version": "1a884c60cdc9",
         "installedAt": "2025-12-29T15:51:20.303Z",
-        "lastUpdated": "2026-04-25T00:41:58.864Z"
+        "lastUpdated": "2026-04-27T22:14:30.331Z"
       }
     ],
     "learning-output-style@claude-plugins-official": [
@@ -22,20 +22,20 @@
     "document-skills@anthropic-agent-skills": [
       {
         "scope": "user",
-        "installPath": "C:\\Users\\jeffkit\\.claude\\plugins\\cache\\anthropic-agent-skills\\document-skills\\69c0b1a06741",
-        "version": "69c0b1a06741",
+        "installPath": "C:\\Users\\jeffkit\\.claude\\plugins\\cache\\anthropic-agent-skills\\document-skills\\f458cee31a75",
+        "version": "f458cee31a75",
         "installedAt": "2025-12-29T16:42:04.847Z",
-        "lastUpdated": "2025-12-29T16:42:04.847Z",
+        "lastUpdated": "2026-05-15T15:46:10.460Z",
         "gitCommitSha": "69c0b1a0674149f27b61b2635f935524b6add202"
       }
     ],
     "example-skills@anthropic-agent-skills": [
       {
         "scope": "user",
-        "installPath": "C:\\Users\\jeffkit\\.claude\\plugins\\cache\\anthropic-agent-skills\\example-skills\\69c0b1a06741",
-        "version": "69c0b1a06741",
+        "installPath": "C:\\Users\\jeffkit\\.claude\\plugins\\cache\\anthropic-agent-skills\\example-skills\\f458cee31a75",
+        "version": "f458cee31a75",
         "installedAt": "2025-12-29T16:42:04.847Z",
-        "lastUpdated": "2025-12-29T16:42:04.847Z",
+        "lastUpdated": "2026-05-15T15:46:10.159Z",
         "gitCommitSha": "69c0b1a0674149f27b61b2635f935524b6add202"
       }
     ],
@@ -46,6 +46,16 @@
         "version": "1.0.0",
         "installedAt": "2025-12-30T22:53:25.090Z",
         "lastUpdated": "2025-12-30T22:53:25.090Z"
+      }
+    ],
+    "teamwork@promptadvisers-teamwork": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\jeffkit\\.claude\\plugins\\cache\\promptadvisers-teamwork\\teamwork\\0.1.0",
+        "version": "0.1.0",
+        "installedAt": "2026-04-30T23:25:49.858Z",
+        "lastUpdated": "2026-04-30T23:25:49.858Z",
+        "gitCommitSha": "e1d9de3916015d15cce59a6201a78c86914ce9f3"
       }
     ]
   }

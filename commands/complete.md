@@ -1,5 +1,5 @@
 ---
-description: Mark a task or project as complete and move it to the Completed folder
+description: Mark a task or project as complete and move it to the Archive folder
 allowed-tools:
   - Read
   - Write
@@ -34,8 +34,8 @@ Wait for user response.
 - Wait for user selection
 
 **Step 1b — Archive the task**
-- Read `Completed/Tasks/completed_todos.md` (create if it doesn't exist)
-- Append the completed task entry to the bottom of `Completed/Tasks/completed_todos.md`:
+- Read `Archive/Tasks/completed_todos.md` (create if it doesn't exist)
+- Append the completed task entry to the bottom of `Archive/Tasks/completed_todos.md`:
 
 ```markdown
 ## [Original heading title] — Completed [YYYY-MM-DD]
@@ -64,8 +64,8 @@ Wait for user response.
 - Add `## Completed` field with today's date below Status
 
 **Step 2c — Move the project folder**
-- Move the entire project folder from `Projects/[name]/` to `Completed/Projects/[name]/`
-- Use: `mv "Projects/[name]" "Completed/Projects/[name]"`
+- Move the entire project folder from `Projects/[name]/` to `Archive/Projects/[name]/`
+- Use: `mv "Projects/[name]" "Archive/Projects/[name]"`
 
 **Step 2d — Clean up linked tasks**
 - Read `Tasks/TO-DOS.md`
@@ -74,14 +74,14 @@ Wait for user response.
 - If yes, archive each one using the task archive steps above
 
 **Step 2e — Confirm**
-- Say: "Project '[name]' marked complete and moved to Completed/Projects/."
+- Say: "Project '[name]' marked complete and moved to Archive/Projects/."
 
 ---
 
 ## Completed Folder Structure
 
 ```
-Completed/
+Archive/
 ├── Tasks/
 │   └── completed_todos.md    # All archived tasks, newest at bottom
 └── Projects/
