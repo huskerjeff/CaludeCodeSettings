@@ -5,7 +5,7 @@
       "repo": "anthropics/claude-plugins-official"
     },
     "installLocation": "C:\\Users\\jeffkit\\.claude\\plugins\\marketplaces\\claude-plugins-official",
-    "lastUpdated": "2026-05-15T15:46:02.265Z"
+    "lastUpdated": "2026-05-31T20:06:06.409Z"
   },
   "anthropic-agent-skills": {
     "source": {
@@ -13,7 +13,7 @@
       "repo": "anthropics/skills"
     },
     "installLocation": "C:\\Users\\jeffkit\\.claude\\plugins\\marketplaces\\anthropic-agent-skills",
-    "lastUpdated": "2026-05-15T15:46:01.898Z"
+    "lastUpdated": "2026-05-31T20:10:40.042Z"
   },
   "taches-cc-resources": {
     "source": {
@@ -21,14 +21,6 @@
       "repo": "glittercowboy/taches-cc-resources"
     },
     "installLocation": "C:\\Users\\jeffkit\\.claude\\plugins\\marketplaces\\taches-cc-resources",
-    "lastUpdated": "2025-12-30T22:52:26.375Z"
-  },
-  "promptadvisers-teamwork": {
-    "source": {
-      "source": "directory",
-      "path": "C:\\Users\\jeffkit\\OneDrive - CDW\\Claude_Work\\TeamWork"
-    },
-    "installLocation": "C:\\Users\\jeffkit\\OneDrive - CDW\\Claude_Work\\TeamWork",
-    "lastUpdated": "2026-04-30T23:19:36.697Z"
+    "lastUpdated": "2026-05-31T20:06:11.158Z"
   }
 }

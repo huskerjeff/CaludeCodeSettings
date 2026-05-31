@@ -1,25 +1,17 @@
 {
-  "model": "opus",
+  "model": "sonnet",
+  "statusLine": {
+    "type": "command",
+    "command": "bash C:/Users/huske/.claude/statusline-command.sh"
+  },
   "enabledPlugins": {
     "commit-commands@claude-plugins-official": true,
     "learning-output-style@claude-plugins-official": false,
     "document-skills@anthropic-agent-skills": true,
     "example-skills@anthropic-agent-skills": true,
-    "taches-cc-resources@taches-cc-resources": true,
-    "teamwork@promptadvisers-teamwork": true
+    "taches-cc-resources@taches-cc-resources": true
   },
-  "extraKnownMarketplaces": {
-    "promptadvisers-teamwork": {
-      "source": {
-        "source": "directory",
-        "path": "C:\\Users\\jeffkit\\OneDrive - CDW\\Claude_Work\\TeamWork"
-      }
-    }
-  },
-  "effortLevel": "medium",
-  "skipDangerousModePermissionPrompt": true,
-  "statusLine": {
-    "type": "command",
-    "command": "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\Users\\jeffkit\\.claude\\statusline.ps1"
-  }
+  "effortLevel": "xhigh",
+  "theme": "light",
+  "skipDangerousModePermissionPrompt": true
 }
